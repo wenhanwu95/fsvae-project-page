@@ -282,6 +282,10 @@
             .performance-metric {
                 font-size: 1.2rem;
             }
+
+            .result-image-wide {
+                max-width: 95% !important;
+            }
         }
 
         .comparison-grid {
@@ -338,6 +342,18 @@
             display: block;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 专门为result2.png设置的宽屏样式 */
+        .result-image-wide {
+            width: 100%;
+            max-width: 1000px; /* 比普通result-image更宽 */
+            margin: 20px auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transform: scaleX(1.15); /* 水平拉伸15% */
+            transform-origin: center; /* 以中心为变换原点 */
         }
 
         .two-column-layout {
@@ -478,7 +494,7 @@
                 <img src="imgs/result1.png" alt="Zero-Shot Learning Results" class="result-image">
 
                 <h3>Generalized Zero-Shot Learning Results</h3>
-                <img src="imgs/result2.png" alt="Generalized Zero-Shot Learning Results" class="result-image">
+                <img src="imgs/result2.png" alt="Generalized Zero-Shot Learning Results" class="result-image-wide">
             </div>
 
             <div class="section" id="citation">
