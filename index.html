@@ -91,7 +91,7 @@
 
         .overview-image {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             margin: 40px auto;
             display: block;
             border-radius: 15px;
@@ -134,6 +134,11 @@
             padding: 25px;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
         }
 
         .highlight-card h3 {
@@ -267,6 +272,11 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-item:hover {
+            transform: translateY(-3px);
         }
 
         .comparison-item h4 {
@@ -285,6 +295,56 @@
             color: #27ae60;
             font-weight: 600;
         }
+
+        .architecture-image {
+            width: 100%;
+            max-width: 1000px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .two-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            .two-column-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .feature-box h4 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-box p {
+            color: #34495e;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -293,7 +353,7 @@
             <h1 class="title">Frequency-Semantic Enhanced Variational Autoencoder for Zero-Shot Skeleton-based Action Recognition</h1>
             
             <div class="authors">
-                <strong>Wenhan Wu¹</strong>, Zhishuai Guo², Chen Chen³, Hongfei Xue¹, Aidong Lu¹
+                <strong>Wenhan Wu¹</strong>, <strong>Zhishuai Guo²</strong>, <strong>Chen Chen³</strong>, <strong>Hongfei Xue¹</strong>, <strong>Aidong Lu¹</strong>
             </div>
             
             <div class="affiliations">
@@ -303,23 +363,27 @@
             </div>
             
             <div class="links">
-                <a href="https://github.com/wenhanwu95/FSVAE" class="link-btn">
-                    📄 Paper (Coming Soon)
+                <a href="https://arxiv.org/abs/XXXX.XXXXX" class="link-btn">
+                    📄 arXiv Paper
                 </a>
-                <a href="https://github.com/wenhanwu95/FSVAE" class="link-btn">
-                    💻 Code
+                <a href="https://github.com/wenhanwu95/FS-VAE" class="link-btn">
+                    💻 GitHub Code
                 </a>
                 <a href="#citation" class="link-btn">
                     📝 BibTeX
                 </a>
+                <a href="imgs/poster.pdf" class="link-btn">
+                    📊 Poster
+                </a>
             </div>
             
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23f8f9ff'/%3E%3Ctext x='400' y='200' text-anchor='middle' font-family='Arial' font-size='24' fill='%23667eea'%3EMethodology Overview%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EFrequency Enhancement + Semantic Description + Calibrated Loss%3C/text%3E%3C/svg%3E" alt="FS-VAE Overview" class="overview-image">
+            <!-- Method Overview Image -->
+            <img src="imgs/method_overview.png" alt="FS-VAE Method Overview" class="overview-image">
             
             <div class="section">
                 <h2>Abstract</h2>
                 <div class="abstract">
-                    Zero-shot skeleton-based action recognition aims to develop models capable of identifying actions beyond the categories encountered during training. Previous approaches have primarily focused on aligning visual and semantic representations but often overlooked the importance of fine-grained action patterns in the semantic space. To address these limitations, we propose a <strong>Frequency-Semantic Enhanced Variational Autoencoder (FS-VAE)</strong> to explore the skeleton semantic representation learning with frequency decomposition. FS-VAE consists of three key components: (1) a frequency-based enhancement module with high- and low-frequency adjustments to enrich the skeletal semantics learning, (2) a semantic-based action description with multilevel alignment to capture both local details and global correspondence, and (3) a calibrated cross-alignment loss that enables valid skeleton-text pairs to counterbalance ambiguous ones.
+                    Zero-shot skeleton-based action recognition aims to develop models capable of identifying actions beyond the categories encountered during training. Previous approaches have primarily focused on aligning visual and semantic representations but often overlooked the importance of <strong>fine-grained action patterns in the semantic space</strong> (e.g., the hand movements in drinking water and brushing teeth). To address these limitations, we propose a <strong>Frequency-Semantic Enhanced Variational Autoencoder (FS-VAE)</strong> to explore the skeleton semantic representation learning with frequency decomposition. FS-VAE consists of three key components: 1) a <strong>frequency-based enhancement module</strong> with high- and low-frequency adjustments to enrich the skeletal semantics learning and improve the robustness of zero-shot action recognition; 2) a <strong>semantic-based action description</strong> with multilevel alignment to capture both local details and global correspondence, effectively bridging the semantic gap and compensating for the inherent loss of information in skeleton sequences; 3) a <strong>calibrated cross-alignment loss</strong> that enables valid skeleton-text pairs to counterbalance ambiguous ones, mitigating discrepancies and ambiguities in skeleton and text features, thereby ensuring robust alignment.
                 </div>
             </div>
 
@@ -328,57 +392,75 @@
                 <div class="highlights">
                     <div class="highlight-card">
                         <h3>🔄 Frequency Enhanced Module</h3>
-                        <p>Employs Discrete Cosine Transform (DCT) to decompose skeleton motions into high- and low-frequency components for adaptive feature enhancement.</p>
+                        <p>Employs Discrete Cosine Transform (DCT) to decompose skeleton motions into high- and low-frequency components, allowing adaptive feature enhancement to improve semantic representation learning in ZSSAR.</p>
                     </div>
                     <div class="highlight-card">
                         <h3>🎯 Semantic-based Action Description</h3>
-                        <p>Novel dual-level description comprising Local Description (LD) and Global Description (GD) to enrich semantic information.</p>
+                        <p>Novel dual-level description comprising Local action Description (LD) and Global action Description (GD) to enrich the semantic information for improving the model performance.</p>
                     </div>
                     <div class="highlight-card">
                         <h3>⚖️ Calibrated Cross-Alignment Loss</h3>
-                        <p>Addresses modality gaps and skeleton ambiguities by dynamically balancing positive and negative pair contributions.</p>
+                        <p>Addresses modality gaps and skeleton ambiguities by dynamically balancing positive and negative pair contributions, ensuring robust alignment between semantic embeddings and skeleton features.</p>
                     </div>
                 </div>
             </div>
 
             <div class="section">
-                <h2>Method Overview</h2>
+                <h2>Method Architecture</h2>
                 <div class="method-overview">
-                    <h3>Frequency-Semantic Enhanced Architecture</h3>
-                    <p>Our FS-VAE framework combines frequency domain analysis with semantic understanding to achieve robust zero-shot action recognition. The frequency enhancement module preserves essential motion patterns while the semantic-based descriptions bridge the gap between visual and textual modalities. The calibrated loss ensures robust alignment even with noisy skeleton data.</p>
+                    <h3>FS-VAE Framework Overview</h3>
+                    <p>Our FS-VAE framework integrates frequency domain analysis with semantic understanding to achieve robust zero-shot action recognition. The frequency enhancement module preserves essential motion patterns while mitigating noise, the semantic-based descriptions bridge the gap between visual and textual modalities, and the calibrated loss ensures robust alignment even with noisy skeleton data.</p>
+                </div>
+                
+                <!-- Architecture diagram -->
+                <img src="imgs/architecture.png" alt="FS-VAE Architecture" class="architecture-image">
+                
+                <div class="two-column-layout">
+                    <div class="feature-box">
+                        <h4>🔍 Frequency Enhancement</h4>
+                        <p>Low-frequency coefficients undergo progressively diminishing amplification to strengthen global motion representation, while high-frequency coefficients are subjected to adaptive attenuation to preserve subtle actions and mitigate noise.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📝 Semantic Description</h4>
+                        <p>Local Description (LD) captures fine-grained motion details like hand movements, while Global Description (GD) represents overall body posture and movement patterns for comprehensive action understanding.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="section">
                 <h2>Experimental Results</h2>
+                
+                <!-- Performance comparison -->
                 <div class="comparison-grid">
                     <div class="comparison-item">
                         <h4>NTU-60 (55/5 split)</h4>
                         <div class="performance-metric">86.9%</div>
-                        <p class="improvement">+3.6% improvement</p>
+                        <p class="improvement">+3.6% over best baseline</p>
                     </div>
                     <div class="comparison-item">
                         <h4>NTU-60 (48/12 split)</h4>
                         <div class="performance-metric">57.2%</div>
-                        <p class="improvement">+7.4% improvement</p>
+                        <p class="improvement">+7.4% over best baseline</p>
                     </div>
                     <div class="comparison-item">
                         <h4>NTU-120 (110/10 split)</h4>
                         <div class="performance-metric">74.4%</div>
-                        <p class="improvement">+2.4% improvement</p>
+                        <p class="improvement">+2.4% over best baseline</p>
                     </div>
                     <div class="comparison-item">
                         <h4>NTU-120 (96/24 split)</h4>
                         <div class="performance-metric">62.5%</div>
-                        <p class="improvement">+1.8% improvement</p>
+                        <p class="improvement">+1.8% over best baseline</p>
                     </div>
                 </div>
 
-                <h3>Detailed Results on Zero-Shot Learning</h3>
+                <!-- Detailed results table -->
+                <h3>Zero-Shot Learning Results Comparison</h3>
                 <table class="results-table">
                     <thead>
                         <tr>
                             <th>Methods</th>
+                            <th>Venue</th>
                             <th>NTU-60 (55/5)</th>
                             <th>NTU-60 (48/12)</th>
                             <th>NTU-120 (110/10)</th>
@@ -387,7 +469,56 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>ReViSE</td>
+                            <td>ICCV2017</td>
+                            <td>53.9</td>
+                            <td>17.5</td>
+                            <td>55.0</td>
+                            <td>32.4</td>
+                        </tr>
+                        <tr>
+                            <td>JPoSE</td>
+                            <td>ICCV2019</td>
+                            <td>64.8</td>
+                            <td>28.8</td>
+                            <td>51.9</td>
+                            <td>32.4</td>
+                        </tr>
+                        <tr>
+                            <td>CADA-VAE</td>
+                            <td>CVPR2019</td>
+                            <td>76.8</td>
+                            <td>29.0</td>
+                            <td>59.5</td>
+                            <td>35.8</td>
+                        </tr>
+                        <tr>
+                            <td>SynSE</td>
+                            <td>ICIP2021</td>
+                            <td>75.8</td>
+                            <td>33.3</td>
+                            <td>62.7</td>
+                            <td>38.7</td>
+                        </tr>
+                        <tr>
+                            <td>SMIE</td>
+                            <td>ACMM2023</td>
+                            <td>78.0</td>
+                            <td>40.2</td>
+                            <td>61.3</td>
+                            <td>42.3</td>
+                        </tr>
+                        <tr>
+                            <td>STAR</td>
+                            <td>ACMM2024</td>
+                            <td>81.4</td>
+                            <td>45.1</td>
+                            <td>63.3</td>
+                            <td>44.3</td>
+                        </tr>
+                        <tr>
                             <td>GZSSAR</td>
+                            <td>ICIG2023</td>
                             <td>83.3</td>
                             <td>49.8</td>
                             <td>72.0</td>
@@ -395,6 +526,7 @@
                         </tr>
                         <tr>
                             <td>PURLS</td>
+                            <td>CVPR2024</td>
                             <td>79.2</td>
                             <td>41.0</td>
                             <td>72.0</td>
@@ -402,6 +534,7 @@
                         </tr>
                         <tr>
                             <td>SA-DVAE</td>
+                            <td>ECCV2024</td>
                             <td>82.4</td>
                             <td>41.4</td>
                             <td>68.8</td>
@@ -409,6 +542,7 @@
                         </tr>
                         <tr class="best">
                             <td><strong>Ours (FS-VAE)</strong></td>
+                            <td><strong>Ours</strong></td>
                             <td><strong>86.9</strong></td>
                             <td><strong>57.2</strong></td>
                             <td><strong>74.4</strong></td>
@@ -416,6 +550,29 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- Qualitative results -->
+                <h3>Qualitative Analysis</h3>
+                <img src="imgs/qualitative_results.png" alt="Qualitative Results" class="result-image">
+                <p style="text-align: center; color: #666; margin-top: 10px;">
+                    t-SNE visualization showing improved inter-class separation and intra-class cohesion compared to baseline methods.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2>Ablation Studies</h2>
+                <img src="imgs/ablation_study.png" alt="Ablation Study Results" class="result-image">
+                
+                <div class="two-column-layout">
+                    <div class="feature-box">
+                        <h4>🔧 Component Analysis</h4>
+                        <p>Systematic ablation showing the contribution of each component: Semantic Description (+2.1%), Frequency Enhancement (+2.5%), and Calibrated Loss (+1.1%).</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📊 Parameter Study</h4>
+                        <p>Analysis of key hyperparameters including frequency threshold φ, adjustment parameter b, and calibrated loss weights α and λ.</p>
+                    </div>
+                </div>
             </div>
 
             <div class="section" id="citation">
@@ -425,14 +582,25 @@
                     <pre id="citation-text">@article{wu2024frequency,
   title={Frequency-Semantic Enhanced Variational Autoencoder for Zero-Shot Skeleton-based Action Recognition},
   author={Wu, Wenhan and Guo, Zhishuai and Chen, Chen and Xue, Hongfei and Lu, Aidong},
-  journal={arXiv preprint},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
   year={2024}
 }</pre>
                 </div>
             </div>
 
+            <div class="section">
+                <h2>Acknowledgments</h2>
+                <p style="text-align: center; color: #666; line-height: 1.8;">
+                    We thank the anonymous reviewers for their valuable feedback. This work was supported by research grants from the University of North Carolina at Charlotte and collaborations with Northern Illinois University and University of Central Florida.
+                </p>
+            </div>
+
             <div class="footer">
-                <p>© 2024 University of North Carolina at Charlotte. This work is supported by research grants and collaborations.</p>
+                <p>© 2024 Wenhan Wu, Zhishuai Guo, Chen Chen, Hongfei Xue, Aidong Lu. All rights reserved.</p>
+                <p style="margin-top: 10px;">
+                    <a href="https://github.com/wenhanwu95/FS-VAE" style="color: #667eea; text-decoration: none;">🔗 GitHub Repository</a> | 
+                    <a href="mailto:wwu25@charlotte.edu" style="color: #667eea; text-decoration: none;">📧 Contact</a>
+                </p>
             </div>
         </div>
     </div>
@@ -449,6 +617,23 @@
                     button.textContent = originalText;
                     button.style.background = '#3498db';
                 }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = citationText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const button = document.querySelector('.copy-btn');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#27ae60';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#3498db';
+                }, 2000);
             });
         }
 
@@ -456,22 +641,51 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation for images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '0';
+                    this.style.transition = 'opacity 0.3s ease';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 100);
                 });
             });
         });
 
-        // Add hover effects to cards
-        document.querySelectorAll('.highlight-card, .comparison-item').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-                this.style.transition = 'transform 0.3s ease';
+        // Add scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
         });
     </script>
 </body>
