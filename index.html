@@ -54,6 +54,18 @@
             color: #555;
         }
 
+        .authors a {
+            color: #555;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .authors a:hover {
+            color: #667eea;
+            text-decoration: underline;
+        }
+
         .affiliations {
             text-align: center;
             font-size: 0.95rem;
@@ -257,18 +269,31 @@
             .highlights {
                 grid-template-columns: 1fr;
             }
+            
+            .comparison-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .comparison-item {
+                padding: 10px;
+            }
+            
+            .performance-metric {
+                font-size: 1.2rem;
+            }
         }
 
         .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
             margin: 30px 0;
         }
 
         .comparison-item {
             background: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -281,14 +306,15 @@
 
         .comparison-item h4 {
             color: #667eea;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
         }
 
         .performance-metric {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #2c3e50;
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
         .improvement {
@@ -307,7 +333,7 @@
 
         .result-image {
             width: 100%;
-            max-width: 800px;
+            max-width: 600px;
             margin: 20px auto;
             display: block;
             border-radius: 15px;
@@ -353,7 +379,11 @@
             <h1 class="title">Frequency-Semantic Enhanced Variational Autoencoder for Zero-Shot Skeleton-based Action Recognition</h1>
             
             <div class="authors">
-                <strong>Wenhan Wu¹</strong>, <strong>Zhishuai Guo²</strong>, <strong>Chen Chen³</strong>, <strong>Hongfei Xue¹</strong>, <strong>Aidong Lu¹</strong>
+                <a href="https://sites.google.com/view/wenhanwu/%E9%A6%96%E9%A1%B5" target="_blank"><strong>Wenhan Wu¹</strong></a>, 
+                <a href="https://zhishuaiguo.github.io/" target="_blank"><strong>Zhishuai Guo²</strong></a>, 
+                <a href="https://www.crcv.ucf.edu/chenchen/" target="_blank"><strong>Chen Chen³</strong></a>, 
+                <a href="https://havocfixer.github.io/" target="_blank"><strong>Hongfei Xue¹</strong></a>, 
+                <a href="https://webpages.charlotte.edu/alu1/" target="_blank"><strong>Aidong Lu¹</strong></a>
             </div>
             
             <div class="affiliations">
@@ -414,6 +444,18 @@
                 
                 <!-- Architecture diagram -->
                 <img src="imgs/fig2.png" alt="FS-VAE Architecture" class="architecture-image">
+                
+                <div class="two-column-layout">
+                    <div class="feature-box">
+                        <h4>🔍 Frequency Enhancement</h4>
+                        <p>Low-frequency coefficients undergo progressively diminishing amplification to strengthen global motion representation, while high-frequency coefficients are subjected to adaptive attenuation to preserve subtle actions and mitigate noise.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>📝 Semantic Description</h4>
+                        <p>Local Description (LD) captures fine-grained motion details like hand movements, while Global Description (GD) represents overall body posture and movement patterns for comprehensive action understanding.</p>
+                    </div>
+                </div>
+            </div>
 
             <div class="section">
                 <h2>Experimental Results</h2>
@@ -444,10 +486,16 @@
 
                 <!-- Results Figures -->
                 <h3>Zero-Shot Learning Results</h3>
-                <img src="imgs/result1.png" alt="Zero-Shot Learning Results" class="result-image">
+                <img src="imgs/fig3.png" alt="Zero-Shot Learning Results" class="result-image">
+                <p style="text-align: center; color: #666; margin-top: 10px;">
+                    Zero-Shot Learning performance comparison on NTU-60 and NTU-120 datasets across different split settings.
+                </p>
 
                 <h3>Generalized Zero-Shot Learning Results</h3>
-                <img src="imgs/result2.png" alt="Generalized Zero-Shot Learning Results" class="result-image">
+                <img src="imgs/fig4.png" alt="Generalized Zero-Shot Learning Results" class="result-image">
+                <p style="text-align: center; color: #666; margin-top: 10px;">
+                    Generalized Zero-Shot Learning performance showing consistent improvements across all datasets and evaluation metrics.
+                </p>
             </div>
 
             <div class="section" id="citation">
