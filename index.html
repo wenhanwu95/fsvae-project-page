@@ -378,7 +378,7 @@
             </div>
             
             <!-- Method Overview Image -->
-            <img src="imgs/method_overview.png" alt="FS-VAE Method Overview" class="overview-image">
+            <img src="imgs/fig1.png" alt="FS-VAE Method Overview" class="overview-image">
             
             <div class="section">
                 <h2>Abstract</h2>
@@ -413,7 +413,7 @@
                 </div>
                 
                 <!-- Architecture diagram -->
-                <img src="imgs/architecture.png" alt="FS-VAE Architecture" class="architecture-image">
+                <img src="imgs/fig2.png" alt="FS-VAE Architecture" class="architecture-image">
                 
                 <div class="two-column-layout">
                     <div class="feature-box">
@@ -551,11 +551,168 @@
                     </tbody>
                 </table>
 
-                <!-- Qualitative results -->
-                <h3>Qualitative Analysis</h3>
-                <img src="imgs/qualitative_results.png" alt="Qualitative Results" class="result-image">
+                <!-- GZSL results -->
+                <h3>Generalized Zero-Shot Learning (GZSL) Results</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Methods</th>
+                            <th rowspan="2">Venue</th>
+                            <th colspan="3">NTU-60 (55/5 split)</th>
+                            <th colspan="3">NTU-60 (48/12 split)</th>
+                            <th colspan="3">NTU-120 (110/10 split)</th>
+                            <th colspan="3">NTU-120 (96/24 split)</th>
+                        </tr>
+                        <tr>
+                            <th>Seen</th>
+                            <th>Unseen</th>
+                            <th>H</th>
+                            <th>Seen</th>
+                            <th>Unseen</th>
+                            <th>H</th>
+                            <th>Seen</th>
+                            <th>Unseen</th>
+                            <th>H</th>
+                            <th>Seen</th>
+                            <th>Unseen</th>
+                            <th>H</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ReViSE</td>
+                            <td>ICCV2017</td>
+                            <td>74.2</td>
+                            <td>34.7</td>
+                            <td>29.2</td>
+                            <td>62.4</td>
+                            <td>20.8</td>
+                            <td>31.2</td>
+                            <td>48.7</td>
+                            <td>44.8</td>
+                            <td>46.7</td>
+                            <td>49.7</td>
+                            <td>25.1</td>
+                            <td>33.3</td>
+                        </tr>
+                        <tr>
+                            <td>JPoSE</td>
+                            <td>ICCV2019</td>
+                            <td>64.4</td>
+                            <td>50.3</td>
+                            <td>56.5</td>
+                            <td>60.5</td>
+                            <td>20.6</td>
+                            <td>30.8</td>
+                            <td>47.7</td>
+                            <td>46.4</td>
+                            <td>47.0</td>
+                            <td>38.6</td>
+                            <td>22.8</td>
+                            <td>28.7</td>
+                        </tr>
+                        <tr>
+                            <td>CADA-VAE</td>
+                            <td>CVPR2019</td>
+                            <td>69.4</td>
+                            <td>61.8</td>
+                            <td>65.4</td>
+                            <td>51.3</td>
+                            <td>27.0</td>
+                            <td>35.4</td>
+                            <td>47.2</td>
+                            <td>19.8</td>
+                            <td>48.4</td>
+                            <td>41.1</td>
+                            <td>34.1</td>
+                            <td>37.3</td>
+                        </tr>
+                        <tr>
+                            <td>SynSE</td>
+                            <td>ICIP2021</td>
+                            <td>61.3</td>
+                            <td>56.9</td>
+                            <td>59.0</td>
+                            <td>52.2</td>
+                            <td>27.9</td>
+                            <td>36.3</td>
+                            <td>52.5</td>
+                            <td>57.6</td>
+                            <td>54.9</td>
+                            <td>56.4</td>
+                            <td>32.2</td>
+                            <td>41.0</td>
+                        </tr>
+                        <tr>
+                            <td>STAR</td>
+                            <td>ACMM2024</td>
+                            <td>69.0</td>
+                            <td>69.9</td>
+                            <td>69.4</td>
+                            <td>62.7</td>
+                            <td>37.0</td>
+                            <td>46.6</td>
+                            <td>59.9</td>
+                            <td>52.7</td>
+                            <td>56.1</td>
+                            <td>51.2</td>
+                            <td>36.9</td>
+                            <td>42.9</td>
+                        </tr>
+                        <tr>
+                            <td>GZSSAR</td>
+                            <td>ICIG2023</td>
+                            <td>66.8</td>
+                            <td>70.7</td>
+                            <td>68.7</td>
+                            <td>54.8</td>
+                            <td>41.4</td>
+                            <td>47.1</td>
+                            <td>58.1</td>
+                            <td>57.8</td>
+                            <td>58.0</td>
+                            <td>59.2</td>
+                            <td>45.9</td>
+                            <td>51.7</td>
+                        </tr>
+                        <tr>
+                            <td>SA-DVAE</td>
+                            <td>ECCV2024</td>
+                            <td>62.3</td>
+                            <td>70.8</td>
+                            <td>66.3</td>
+                            <td>50.2</td>
+                            <td>36.9</td>
+                            <td>42.6</td>
+                            <td>61.1</td>
+                            <td>59.8</td>
+                            <td>60.4</td>
+                            <td>58.8</td>
+                            <td>35.8</td>
+                            <td>44.5</td>
+                        </tr>
+                        <tr class="best">
+                            <td><strong>Ours (FS-VAE)</strong></td>
+                            <td><strong>Ours</strong></td>
+                            <td><strong>77.0</strong></td>
+                            <td><strong>74.5</strong></td>
+                            <td><strong>75.7</strong></td>
+                            <td><strong>56.2</strong></td>
+                            <td><strong>48.6</strong></td>
+                            <td><strong>52.1</strong></td>
+                            <td><strong>59.2</strong></td>
+                            <td><strong>67.9</strong></td>
+                            <td><strong>63.3</strong></td>
+                            <td><strong>57.8</strong></td>
+                            <td><strong>51.9</strong></td>
+                            <td><strong>54.7</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <img src="imgs/fig4.png" alt="GZSL Results Visualization" class="result-image">
                 <p style="text-align: center; color: #666; margin-top: 10px;">
-                    t-SNE visualization showing improved inter-class separation and intra-class cohesion compared to baseline methods.
+                    Performance comparison on Generalized Zero-Shot Learning tasks showing consistent improvements across all datasets and splits.
                 </p>
             </div>
 
